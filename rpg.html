@@ -1,0 +1,22 @@
+<script>
+    let hpBoss = 300;
+    let manaHero = 100;
+    let manaGastaTotal = 0;
+    let acao;
+
+    console.log("Ochefe surgiu: 300hp")
+    for (let turno = 1; turno <= 15; turno++){
+        if (hpBoss <= 0){
+            console.log("O Boss foi derrotado!")
+            break;
+        }
+        acao = (Math.random() * 3) + 1
+        switch(acao) {
+            case 1:
+                console.log("Ataque Básico. 20 Dano")
+                //hpBoss = hpBoss - 20
+                hpBoss -= 20;
+                break;
+        }
+    }
+</script>
