@@ -21,7 +21,7 @@
         let escolha = prompt(menu);
         let acao = parseInt(escolha);
 
-        alert("Ação: " + acao)
+        ("Ação: " + acao)
         switch(acao) {
             case 1:
                 alert("Ataque Básico. 20 dano");
@@ -47,11 +47,26 @@
                     alert("Ultimate não carregada!");
                 }
                 break;
-                case 4:
+            case 4:
                  alert ("Você desistiu seu merda")
                 break;
+            }
+        manaHeroi += 5;
+
+        if (hpBoss > 0) {
+            let sorte = Math.random();
+            alert(sorte)
+            if (sorte >= 0.5) {
+                let danoBoss = 15;
+                if (sorte >= 0.8) {
+                    danoBoss = 35;
+                }
+                hpHeroi -= danoBoss
+                alert("O Boss atacou com " + danoBoss)
+            }
         }
-        alert("HP Boss: " + hpBoss + " Mana:" + manaHeroi);
+        
+        alert("HP Boss: " + hpBoss + "\n Mana:" + manaHeroi + "\n HP Herói: " + hpHeroi);
     }
     if (hpBoss <= 0) { 
         alert("Vitória");
