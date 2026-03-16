@@ -8,28 +8,50 @@
 
 <body>
     <div class="container">
-        <div class="row">
-            <div class="col text-end" id="col-heroi">
-                <div id="nome-heroi">Aragon</div>⚔️
-                <progress id="hp-heroi" value="100" max="100" style="accent-color: red;"></progress>
-                <progress id="mp-heroi" value="100" max="100">
-                </progress>
-                <progress id="en-heroi" value="0" max="100" style="accent-color: orange;"></progress>
-                <img src="assets/Gif_guerreiro.gif" width="200" height="200">
+        <div class="card text-center">
+            <div class="card-header">RPG do Erick</div>
+            <div class="card-body" id="tela"style="background-image: url('assets/background.gif')">
+            <p class="card-text"> Turno 1 </p>
+            <div class="row">
+                <div class="col text-start" id="col-heroi">
+                    <ul class="list-group float-start text-center" style="width: 225px;">
+                        <li id="nome-heroi" class="list-group-item">Eren</li>
+                        <li id="titulo-heroi" class="list-group-item">⚔️</li>
+                        <li id="hp-heroi" class="list-group-item">❤️ <progress id="hp-heroi" value="100" max="100"
+                                style="accent-color: red;"></progress></li>
+                        <li id="mp-heroi" class="list-group-item">🧪 <progress id="mp-heroi" value="100"
+                                max="100"></progress></li>
+                        <li id="en-heroi" class="list-group-item">⚡<progress id="en-heroi" value="0" max="100"
+                                style="accent-color: orange;"></progress></li>
+                    </ul>
+                </div>
+                <div class="col" id="col-boss">
+                    <ul class="list-group float-end" style="width: 225px;">
+                        <li id="nome-boss" class="list-group-item">Titã</li>
+                        <li id="titulo-boss" class="list-group-item">⚔️</li>
+                        <li id="hp-boss" class="list-group-item">❤️ <progress id="hp-boss" value="100" max="100"
+                                style="accent-color: red;"></progress></li>
+                        <li id="mp-boss" class="list-group-item">🧪 <progress id="mp-boss" value="100"
+                                max="100"></progress></li>
+                    </ul>
+                </div>
             </div>
-            <div class="col" id="col-boss">
-
+            <div class="row">
+                <div class="col text-end" id="col-botoes">
+                    <img src="assets/samurai1.gif" width="300px" height="250px">
+                </div>
+                <div class="col text-start" id="col-msg">
+                    <img src="assets/eskeleto_boss.gif" width="200px" height="250px">
+                </div>
+                <div class="btn-group" id="controles">
+                    <button class="btn btn-dark">Attack</button>
+                    <button class="btn btn-dark">Skill</button>
+                    <button class="btn btn-dark">Ultimate</button>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col" id="col-botoes">
-
-            </div>
-            <div class="col" id="col-msg">
-
-        </div>
-        </div>
-    </div>
+            <div class="card-footer"></div>
+        </div> <!-- card -->
+    </div> <!-- container -->
 </body>
 
 </html>
