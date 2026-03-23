@@ -3,12 +3,33 @@ class Personagem {
         this.nome = nome;
         this.titulo = titulo;
         this.hp = hp;
-        this.mana =mana;
+        this.mana = mana;
         this.energia = energia;
     }
     atacar(alvo, habilidade) {
+        //veriificar se tem mana e energia
+        if (this.mana >= habilidade.custo
+            && this.energia >= habilidade.energia) {
+            // dano no alvo
+            alvo.hp -= habilidade.dano;
+            // debitar mana
+            if (habilidade.custo > 0) {
+                this.mana -= habilidade.custo;
+                this.energia += 50;
+            }
+            // esvaziar energia
+            if (habilidade.energia > 0) {
+                this.energia = 0;
+            }
+            //retornar mensagem
+            return `${this.nome} usou ${habilidade.nome}`;
+        } else {
+            return ` Sem mana para usar ${habilidade.nome}`;
+        }
+
 
     }
+
 }
 
 class Habilidade {
@@ -17,30 +38,38 @@ class Habilidade {
         this.nome = nome;
         this.dano = dano;
         this.custo = custo;
-        this.energia = energia;       
+        this.energia = energia;
     }
+
 }
 
-// Instanciar (Criar) os objetos
-let hero = new Personagem("Eren", "O Heroi", 100, 100, 0);
-let boss = new Personagem("Titã", "A Besta", 100, 100, 0);
+//instaciar (criar) os objetos
+let hero = new Personagem("Eren", "Herói", 100, 100, 0);
+let boss = new Personagem("Titã", "Boss", 100, 0, 50);
 
-// Preencher Status
 document.getElementById("nome-heroi").textContent = `${hero.nome}`;
-document.getElementById("titulo-heroi").textContent = `⚔️${hero.titulo}`;
+document.getElementById("titulo-heroi").textContent = `⚔️ ${hero.titulo}`;
 
 document.getElementById("nome-boss").textContent = `${boss.nome}`;
-document.getElementById("titulo-boss").textContent = `💀${boss.titulo}`;
+document.getElementById("titulo-boss").textContent = `💀 ${boss.titulo}`;
 
+
+//criar habilidade e botões
 let container = document.getElementById("controles");
 let listaHabilidades = [
-    new Habilidade(1, "attack", 4, 0, 0),
-    new Habilidade(2, "skill", 8, 10, 0),
-    new Habilidade(3, "ultimate", 15, 0, 100)
+    new Habilidade(1, "Ataque", 4, 0, 0),
+    new Habilidade(2, "Skill", 8, 10, 0),
+    new Habilidade(3, "Ultimate", 15, 0, 100)
 ];
+
 listaHabilidades.forEach(hab => {
     let btn = document.createElement("button");
     btn.innerText = hab.nome;
-    btn.classList.add("btn","btn-dark");
+    btn.classList.add("btn", "btn-primary");
     container.appendChild(btn);
+    btn.onclick = () => {
+        let mensagem = hero.atacar(boss, hab);
+        atualizarInterface(mensagem);
+        boss.atacar(hero);
+    }
 });
