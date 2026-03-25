@@ -51,11 +51,11 @@ class Habilidade {
 }
 
 //instaciar (criar) os objetos
-let hero = new Personagem("Anabelle", "Herói", 100, 100, 0);
-let boss = new Personagem("Caçador de almas", "Boss", 100, 0, 50);
+let hero = new Personagem("Eren", "Herói", 100, 100, 0);
+let boss = new Personagem("Titã", "Boss", 100, 0, 50);
 
 document.getElementById("nome-heroi").textContent = `${hero.nome}`;
-document.getElementById("titulo-heroi").textContent = `🗡️ ${hero.titulo}`;
+document.getElementById("titulo-heroi").textContent = `⚔️ ${hero.titulo}`;
 
 document.getElementById("nome-boss").textContent = `${boss.nome}`;
 document.getElementById("titulo-boss").textContent = `💀🪄 ${boss.titulo}`;
@@ -68,7 +68,8 @@ const atualizarInterface = (mensagem) => {
     //barras boss
     document.getElementById("hp-boss").value = boss.hp;
     document.getElementById("en-boss").value = boss.energia;
-
+    //turnos
+document.getElementById("log-primario").textContent = mensagem;
 }
 
 
